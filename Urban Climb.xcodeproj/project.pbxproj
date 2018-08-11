@@ -11,8 +11,8 @@
 		93614882211E5BD000B9389E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93614881211E5BD000B9389E /* ViewController.m */; };
 		93614885211E5BD000B9389E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93614883211E5BD000B9389E /* Main.storyboard */; };
 		93614887211E5BD200B9389E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93614886211E5BD200B9389E /* Assets.xcassets */; };
-		9361488A211E5BD200B9389E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93614888211E5BD200B9389E /* LaunchScreen.storyboard */; };
 		9361488D211E5BD200B9389E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9361488C211E5BD200B9389E /* main.m */; };
+		93614894211EC65400B9389E /* LoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93614893211EC65400B9389E /* LoadingScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +23,9 @@
 		93614881211E5BD000B9389E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		93614884211E5BD000B9389E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93614886211E5BD200B9389E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		93614889211E5BD200B9389E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9361488B211E5BD200B9389E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9361488C211E5BD200B9389E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		93614893211EC65400B9389E /* LoadingScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +60,31 @@
 			children = (
 				9361487D211E5BD000B9389E /* AppDelegate.h */,
 				9361487E211E5BD000B9389E /* AppDelegate.m */,
-				93614880211E5BD000B9389E /* ViewController.h */,
-				93614881211E5BD000B9389E /* ViewController.m */,
-				93614883211E5BD000B9389E /* Main.storyboard */,
+				93614896211EC66D00B9389E /* Controllers */,
+				93614895211EC65E00B9389E /* Views */,
 				93614886211E5BD200B9389E /* Assets.xcassets */,
-				93614888211E5BD200B9389E /* LaunchScreen.storyboard */,
 				9361488B211E5BD200B9389E /* Info.plist */,
 				9361488C211E5BD200B9389E /* main.m */,
 			);
 			path = "Urban Climb";
+			sourceTree = "<group>";
+		};
+		93614895211EC65E00B9389E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				93614883211E5BD000B9389E /* Main.storyboard */,
+				93614893211EC65400B9389E /* LoadingScreen.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		93614896211EC66D00B9389E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93614880211E5BD000B9389E /* ViewController.h */,
+				93614881211E5BD000B9389E /* ViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +144,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9361488A211E5BD200B9389E /* LaunchScreen.storyboard in Resources */,
+				93614894211EC65400B9389E /* LoadingScreen.xib in Resources */,
 				93614887211E5BD200B9389E /* Assets.xcassets in Resources */,
 				93614885211E5BD000B9389E /* Main.storyboard in Resources */,
 			);
@@ -156,14 +172,6 @@
 				93614884211E5BD000B9389E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		93614888211E5BD200B9389E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93614889211E5BD200B9389E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -292,7 +300,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.sodev.Urban-Climb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -309,7 +317,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.sodev.Urban-Climb";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
