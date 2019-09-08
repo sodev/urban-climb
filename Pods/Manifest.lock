@@ -1,0 +1,16 @@
+PODS:
+  - MTBBarcodeScanner (5.0.11)
+
+DEPENDENCIES:
+  - MTBBarcodeScanner
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MTBBarcodeScanner
+
+SPEC CHECKSUMS:
+  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
+
+PODFILE CHECKSUM: 0cf595b65aa3885d52081523cabe64919235ff83
+
+COCOAPODS: 1.6.1

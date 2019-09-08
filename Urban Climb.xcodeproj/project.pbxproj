@@ -7,20 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14160898232228A900178F00 /* UBCBarcodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14160897232228A900178F00 /* UBCBarcodeScannerViewController.m */; };
+		1416089C2323267100178F00 /* UBCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1416089B2323267100178F00 /* UBCUser.m */; };
+		141608A22324AB8F00178F00 /* UBCNoBarcodePlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141608A12324AB8F00178F00 /* UBCNoBarcodePlaceholderView.xib */; };
+		141608A42324ABA100178F00 /* UBCBarcodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141608A32324ABA100178F00 /* UBCBarcodeView.xib */; };
+		141608A72324AC3A00178F00 /* UBCNoBarcodePlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141608A62324AC3A00178F00 /* UBCNoBarcodePlaceholderView.m */; };
+		141608AA2324ADB000178F00 /* UBCBarcodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 141608A92324ADB000178F00 /* UBCBarcodeView.m */; };
+		141608AD2324BF6300178F00 /* UBCUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 141608AC2324BF6300178F00 /* UBCUserService.m */; };
 		9361487F211E5BD000B9389E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9361487E211E5BD000B9389E /* AppDelegate.m */; };
-		93614882211E5BD000B9389E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93614881211E5BD000B9389E /* ViewController.m */; };
+		93614882211E5BD000B9389E /* UBCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93614881211E5BD000B9389E /* UBCHomeViewController.m */; };
 		93614885211E5BD000B9389E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93614883211E5BD000B9389E /* Main.storyboard */; };
 		93614887211E5BD200B9389E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93614886211E5BD200B9389E /* Assets.xcassets */; };
 		9361488D211E5BD200B9389E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9361488C211E5BD200B9389E /* main.m */; };
 		93614894211EC65400B9389E /* LoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93614893211EC65400B9389E /* LoadingScreen.xib */; };
+		B8F20C4B4EFAFFFC12D1EB5E /* libPods-Urban Climb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E68F75C5378C9709F735C /* libPods-Urban Climb.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14160896232228A900178F00 /* UBCBarcodeScannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCBarcodeScannerViewController.h; sourceTree = "<group>"; };
+		14160897232228A900178F00 /* UBCBarcodeScannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCBarcodeScannerViewController.m; sourceTree = "<group>"; };
+		1416089A2323267100178F00 /* UBCUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCUser.h; sourceTree = "<group>"; };
+		1416089B2323267100178F00 /* UBCUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCUser.m; sourceTree = "<group>"; };
+		141608A12324AB8F00178F00 /* UBCNoBarcodePlaceholderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBCNoBarcodePlaceholderView.xib; sourceTree = "<group>"; };
+		141608A32324ABA100178F00 /* UBCBarcodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBCBarcodeView.xib; sourceTree = "<group>"; };
+		141608A52324AC3A00178F00 /* UBCNoBarcodePlaceholderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCNoBarcodePlaceholderView.h; sourceTree = "<group>"; };
+		141608A62324AC3A00178F00 /* UBCNoBarcodePlaceholderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCNoBarcodePlaceholderView.m; sourceTree = "<group>"; };
+		141608A82324ADB000178F00 /* UBCBarcodeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCBarcodeView.h; sourceTree = "<group>"; };
+		141608A92324ADB000178F00 /* UBCBarcodeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCBarcodeView.m; sourceTree = "<group>"; };
+		141608AB2324BF6300178F00 /* UBCUserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCUserService.h; sourceTree = "<group>"; };
+		141608AC2324BF6300178F00 /* UBCUserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCUserService.m; sourceTree = "<group>"; };
+		16820A2A850E426433505047 /* Pods-Urban Climb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Urban Climb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Urban Climb/Pods-Urban Climb.debug.xcconfig"; sourceTree = "<group>"; };
+		253E68F75C5378C9709F735C /* libPods-Urban Climb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Urban Climb.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F614BC04862EA1651DE4ED4 /* Pods-Urban Climb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Urban Climb.release.xcconfig"; path = "Pods/Target Support Files/Pods-Urban Climb/Pods-Urban Climb.release.xcconfig"; sourceTree = "<group>"; };
 		9361487A211E5BCF00B9389E /* Urban Climb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Urban Climb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9361487D211E5BD000B9389E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9361487E211E5BD000B9389E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		93614880211E5BD000B9389E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		93614881211E5BD000B9389E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		93614880211E5BD000B9389E /* UBCHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCHomeViewController.h; sourceTree = "<group>"; };
+		93614881211E5BD000B9389E /* UBCHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCHomeViewController.m; sourceTree = "<group>"; };
 		93614884211E5BD000B9389E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93614886211E5BD200B9389E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9361488B211E5BD200B9389E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,17 +56,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F20C4B4EFAFFFC12D1EB5E /* libPods-Urban Climb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		141608992323264400178F00 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1416089A2323267100178F00 /* UBCUser.h */,
+				1416089B2323267100178F00 /* UBCUser.m */,
+			);
+			name = Models;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		141608A02324AB1600178F00 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				141608AB2324BF6300178F00 /* UBCUserService.h */,
+				141608AC2324BF6300178F00 /* UBCUserService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		93614871211E5BCF00B9389E = {
 			isa = PBXGroup;
 			children = (
 				9361487C211E5BCF00B9389E /* Urban Climb */,
 				9361487B211E5BCF00B9389E /* Products */,
+				D76C948E51CF79CE22893461 /* Pods */,
+				E96CA9603C4DA2BC539E2DCA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +105,8 @@
 			children = (
 				9361487D211E5BD000B9389E /* AppDelegate.h */,
 				9361487E211E5BD000B9389E /* AppDelegate.m */,
+				141608A02324AB1600178F00 /* Services */,
+				141608992323264400178F00 /* Models */,
 				93614896211EC66D00B9389E /* Controllers */,
 				93614895211EC65E00B9389E /* Views */,
 				93614886211E5BD200B9389E /* Assets.xcassets */,
@@ -74,6 +121,12 @@
 			children = (
 				93614883211E5BD000B9389E /* Main.storyboard */,
 				93614893211EC65400B9389E /* LoadingScreen.xib */,
+				141608A12324AB8F00178F00 /* UBCNoBarcodePlaceholderView.xib */,
+				141608A52324AC3A00178F00 /* UBCNoBarcodePlaceholderView.h */,
+				141608A62324AC3A00178F00 /* UBCNoBarcodePlaceholderView.m */,
+				141608A32324ABA100178F00 /* UBCBarcodeView.xib */,
+				141608A82324ADB000178F00 /* UBCBarcodeView.h */,
+				141608A92324ADB000178F00 /* UBCBarcodeView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -81,10 +134,29 @@
 		93614896211EC66D00B9389E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				93614880211E5BD000B9389E /* ViewController.h */,
-				93614881211E5BD000B9389E /* ViewController.m */,
+				93614880211E5BD000B9389E /* UBCHomeViewController.h */,
+				93614881211E5BD000B9389E /* UBCHomeViewController.m */,
+				14160896232228A900178F00 /* UBCBarcodeScannerViewController.h */,
+				14160897232228A900178F00 /* UBCBarcodeScannerViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D76C948E51CF79CE22893461 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16820A2A850E426433505047 /* Pods-Urban Climb.debug.xcconfig */,
+				3F614BC04862EA1651DE4ED4 /* Pods-Urban Climb.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E96CA9603C4DA2BC539E2DCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				253E68F75C5378C9709F735C /* libPods-Urban Climb.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +166,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93614890211E5BD200B9389E /* Build configuration list for PBXNativeTarget "Urban Climb" */;
 			buildPhases = (
+				E35BEAE9493816C91F816B8A /* [CP] Check Pods Manifest.lock */,
 				93614876211E5BCF00B9389E /* Sources */,
 				93614877211E5BCF00B9389E /* Frameworks */,
 				93614878211E5BCF00B9389E /* Resources */,
@@ -145,21 +218,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				93614894211EC65400B9389E /* LoadingScreen.xib in Resources */,
+				141608A22324AB8F00178F00 /* UBCNoBarcodePlaceholderView.xib in Resources */,
 				93614887211E5BD200B9389E /* Assets.xcassets in Resources */,
+				141608A42324ABA100178F00 /* UBCBarcodeView.xib in Resources */,
 				93614885211E5BD000B9389E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E35BEAE9493816C91F816B8A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Urban Climb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		93614876211E5BCF00B9389E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93614882211E5BD000B9389E /* ViewController.m in Sources */,
+				141608AD2324BF6300178F00 /* UBCUserService.m in Sources */,
+				141608A72324AC3A00178F00 /* UBCNoBarcodePlaceholderView.m in Sources */,
+				93614882211E5BD000B9389E /* UBCHomeViewController.m in Sources */,
 				9361488D211E5BD200B9389E /* main.m in Sources */,
+				14160898232228A900178F00 /* UBCBarcodeScannerViewController.m in Sources */,
 				9361487F211E5BD000B9389E /* AppDelegate.m in Sources */,
+				1416089C2323267100178F00 /* UBCUser.m in Sources */,
+				141608AA2324ADB000178F00 /* UBCBarcodeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +390,7 @@
 		};
 		93614891211E5BD200B9389E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16820A2A850E426433505047 /* Pods-Urban Climb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,7 +400,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "co.sodev.Urban-Climb";
+				PRODUCT_BUNDLE_IDENTIFIER = co.sodev.urbanclimb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -306,6 +408,7 @@
 		};
 		93614892211E5BD200B9389E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F614BC04862EA1651DE4ED4 /* Pods-Urban Climb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -315,7 +418,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "co.sodev.Urban-Climb";
+				PRODUCT_BUNDLE_IDENTIFIER = co.sodev.urbanclimb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
