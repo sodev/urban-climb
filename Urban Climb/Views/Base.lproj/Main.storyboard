@@ -17,15 +17,128 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQ7-kQ-84T">
+                                <rect key="frame" x="335" y="36" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="7d6-Ok-ORl"/>
+                                    <constraint firstAttribute="width" constant="24" id="A7U-yR-mtf"/>
+                                </constraints>
+                                <state key="normal" image="edit-button"/>
+                                <connections>
+                                    <segue destination="Fji-Xr-M48" kind="show" identifier="EditMembershipSegue" id="xlG-v5-zgk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IQ7-kQ-84T" secondAttribute="trailing" constant="16" id="93M-gA-K1m"/>
+                            <constraint firstItem="IQ7-kQ-84T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="fPz-Ph-GuS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="editButton" destination="IQ7-kQ-84T" id="VEx-g9-og7"/>
                         <segue destination="dSH-Ub-skV" kind="show" identifier="BarcodeScannerSegue" id="54C-Zv-8Rq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="31.934032983508249"/>
+        </scene>
+        <!--Membership View Controller-->
+        <scene sceneID="ete-lJ-awt">
+            <objects>
+                <viewController id="Fji-Xr-M48" customClass="UBCMembershipViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kKa-EC-HSK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Membership" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJI-NO-SEB">
+                                <rect key="frame" x="16" y="36" width="153" height="32"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xev-k3-A1d">
+                                <rect key="frame" x="313" y="37" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Z04-Q0-o1G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="Fji-Xr-M48" eventType="touchUpInside" id="kyR-xW-b9q"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNj-Vu-GsW">
+                                <rect key="frame" x="64.5" y="100" width="246" height="143"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q3v-VR-jZf">
+                                        <rect key="frame" x="8" y="8" width="230" height="115"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="230" id="t9n-xr-5tt"/>
+                                            <constraint firstAttribute="height" constant="115" id="tUs-45-F8Y"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="urban" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-i3-f5D">
+                                        <rect key="frame" x="8" y="115" width="230" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="XI5-St-wb6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ayf-i3-f5D" firstAttribute="centerX" secondItem="q3v-VR-jZf" secondAttribute="centerX" id="8f3-YE-5Pg"/>
+                                    <constraint firstItem="q3v-VR-jZf" firstAttribute="top" secondItem="RNj-Vu-GsW" secondAttribute="top" constant="8" id="DeL-wI-tuO"/>
+                                    <constraint firstItem="ayf-i3-f5D" firstAttribute="width" secondItem="q3v-VR-jZf" secondAttribute="width" id="GAB-Te-g2C"/>
+                                    <constraint firstAttribute="bottom" secondItem="ayf-i3-f5D" secondAttribute="bottom" constant="8" id="bl2-yC-vYm"/>
+                                    <constraint firstItem="ayf-i3-f5D" firstAttribute="top" secondItem="q3v-VR-jZf" secondAttribute="bottom" constant="-8" id="qVc-E6-NaY"/>
+                                    <constraint firstAttribute="trailing" secondItem="q3v-VR-jZf" secondAttribute="trailing" constant="8" id="r4d-li-atC"/>
+                                    <constraint firstItem="q3v-VR-jZf" firstAttribute="leading" secondItem="RNj-Vu-GsW" secondAttribute="leading" constant="8" id="zQj-KJ-urg"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYZ-WU-219">
+                                <rect key="frame" x="149.5" y="259" width="76" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hgk-hF-Nqc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="REMOVE">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeMembership:" destination="Fji-Xr-M48" eventType="touchUpInside" id="MDi-MB-GI8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xev-k3-A1d" firstAttribute="centerY" secondItem="oJI-NO-SEB" secondAttribute="centerY" id="ARQ-sC-oH1"/>
+                            <constraint firstItem="oJI-NO-SEB" firstAttribute="top" secondItem="9Bo-RP-CeO" secondAttribute="top" constant="16" id="HaE-0A-WVs"/>
+                            <constraint firstItem="xev-k3-A1d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oJI-NO-SEB" secondAttribute="trailing" constant="8" symbolic="YES" id="SHF-ys-840"/>
+                            <constraint firstItem="jYZ-WU-219" firstAttribute="top" secondItem="RNj-Vu-GsW" secondAttribute="bottom" constant="16" id="Z23-nj-pS9"/>
+                            <constraint firstItem="jYZ-WU-219" firstAttribute="centerX" secondItem="RNj-Vu-GsW" secondAttribute="centerX" id="aRS-8l-OU7"/>
+                            <constraint firstItem="9Bo-RP-CeO" firstAttribute="trailing" secondItem="xev-k3-A1d" secondAttribute="trailing" constant="16" id="h8t-G7-gsy"/>
+                            <constraint firstItem="oJI-NO-SEB" firstAttribute="leading" secondItem="9Bo-RP-CeO" secondAttribute="leading" constant="16" id="s6Q-kY-my0"/>
+                            <constraint firstItem="RNj-Vu-GsW" firstAttribute="top" secondItem="oJI-NO-SEB" secondAttribute="bottom" constant="32" id="sWl-lO-580"/>
+                            <constraint firstItem="RNj-Vu-GsW" firstAttribute="centerX" secondItem="9Bo-RP-CeO" secondAttribute="centerX" id="xEd-Ms-NeS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Bo-RP-CeO"/>
+                    </view>
+                    <connections>
+                        <outlet property="barcodeImageView" destination="q3v-VR-jZf" id="32g-Jh-rLq"/>
+                        <outlet property="barcodeLabel" destination="ayf-i3-f5D" id="sjM-qg-K1l"/>
+                        <outlet property="cardView" destination="RNj-Vu-GsW" id="Rge-xo-qfx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vLu-Jc-sNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.79999999999995" y="393.55322338830587"/>
         </scene>
         <!--Barcode Scanner View Controller-->
         <scene sceneID="0p9-Ln-jGk">
@@ -53,10 +166,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qd-CT-1R1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800.79999999999995" y="23.838080959520241"/>
+            <point key="canvasLocation" x="894" y="-300"/>
         </scene>
     </scenes>
     <resources>
+        <image name="edit-button" width="29.5" height="29.5"/>
         <image name="logo-light" width="682.5" height="490"/>
     </resources>
 </document>

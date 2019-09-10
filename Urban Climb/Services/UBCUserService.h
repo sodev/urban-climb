@@ -15,4 +15,6 @@
 
 - (void)storeUser:(UBCUser *)user;
 
+- (void)removeUser;
+
 @end

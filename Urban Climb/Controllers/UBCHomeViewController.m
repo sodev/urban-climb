@@ -10,20 +10,24 @@
 
 #import "UBCHomeViewController.h"
 #import "UBCBarcodeScannerViewController.h"
+#import "UBCMembershipViewController.h"
 
 #import "UBCUserService.h"
 
 #import "UBCUser.h"
 
-#import "UBCNoBarcodePlaceholderView.h"
-#import "UBCBarcodeView.h"
+#import "UBCMembershipCardView.h"
 
 static NSString * const ADD_BARCODE_SEGUE_IDENTIFIER = @"BarcodeScannerSegue";
+static NSString * const EDIT_MEMBERSHIP_SEGUE_IDENTIFIER = @"EditMembershipSegue";
 
-@interface UBCHomeViewController () <UBCBarcodeScannerViewControllerDelegate, UBCNoBarcodePlaceholderViewDelegate>
+@interface UBCHomeViewController () <UBCBarcodeScannerViewControllerDelegate, UBCMembershipCardViewDelegate>
 
 @property (nonatomic, strong, nullable) UBCUser *currentUser;
 @property (nonatomic, strong, nonnull) UBCUserService *userService;
+
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (nonnull, nonatomic) UBCMembershipCardView *cardView;
 
 @end
 
@@ -34,25 +38,40 @@ static NSString * const ADD_BARCODE_SEGUE_IDENTIFIER = @"BarcodeScannerSegue";
     [super loadView];
     
     self.userService = [[UBCUserService alloc] init];
-    self.currentUser = [self.userService retrieveStoredUser];
     
-    [self updateView];
+    self.cardView = [[NSBundle mainBundle] loadNibNamed:@"UBCMembershipCardView" owner:nil options:nil].lastObject;
+    self.cardView.delegate = self;
+    [self.view addSubview:self.cardView];
+    
+//    [self.cardView.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:0.0].active = YES;
+//    [self.cardView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:0.0].active = YES;
+//    [self.cardView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:0.0].active = YES;
+//    [self.cardView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:0.0].active = YES;
+    self.cardView.frame = CGRectMake(16, 96, self.view.frame.size.width - 32, 550);
+    
+    self.cardView.layer.shadowRadius  = 4.0;
+    self.cardView.layer.shadowColor   = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0].CGColor;
+    self.cardView.layer.shadowOffset  = CGSizeMake(0.0, 2.0);
+    self.cardView.layer.shadowOpacity = 0.5;;
+    self.cardView.layer.cornerRadius = 10.0;
+    self.cardView.layer.masksToBounds = NO;
 }
 
-- (void)updateView
+- (void)viewWillAppear:(BOOL)animated
 {
-    [[self.view subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.currentUser = [self.userService retrieveStoredUser];
     
+    [self updateContent];
+}
+
+- (void)updateContent
+{
     if (self.currentUser == NULL) {
-        UBCNoBarcodePlaceholderView *placeholderView = [[[NSBundle mainBundle] loadNibNamed:@"UBCNoBarcodePlaceholderView" owner:self options:nil] firstObject];
-        placeholderView.delegate = self;
-        placeholderView.frame = self.view.frame;
-        [self.view addSubview:placeholderView];
+        [self.cardView configureWithPlaceholders];
+        self.editButton.hidden = TRUE;
     } else {
-        UBCBarcodeView *barcodeView = [[[NSBundle mainBundle] loadNibNamed:@"UBCBarcodeView" owner:self options:nil] firstObject];
-        [barcodeView configureWithBarcode:self.currentUser.barcode];
-        barcodeView.frame = self.view.frame;
-        [self.view addSubview:barcodeView];
+        [self.cardView configureWithBarcode:self.currentUser.barcode];
+        self.editButton.hidden = FALSE;
     }
 }
 
@@ -64,9 +83,13 @@ static NSString * const ADD_BARCODE_SEGUE_IDENTIFIER = @"BarcodeScannerSegue";
         UBCBarcodeScannerViewController *destinationViewController = segue.destinationViewController;
         destinationViewController.delegate = self;
     }
+    else if ([segue.identifier isEqualToString:EDIT_MEMBERSHIP_SEGUE_IDENTIFIER]) {
+        UBCMembershipViewController *destinationViewController = segue.destinationViewController;
+        destinationViewController.currentUser = self.currentUser;
+    }
 }
 
-#pragma mark - <UBCNoBarcodePlaceholderViewDelegate> methods
+#pragma mark - <UBCMembershipCardViewDelegate> methods
 
 - (void)addBarcodeButtonTapped
 {
@@ -82,7 +105,7 @@ static NSString * const ADD_BARCODE_SEGUE_IDENTIFIER = @"BarcodeScannerSegue";
     self.currentUser = [[UBCUser alloc] initWithBarcode:code.stringValue];
     [self.userService storeUser:self.currentUser];
     
-    [self updateView];
+    [self updateContent];
 }
 
 @end

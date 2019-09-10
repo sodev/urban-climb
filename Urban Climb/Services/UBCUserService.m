@@ -31,4 +31,11 @@ static NSString * const UBC_STORED_BARCODEKEY = @"UBCStoredUserBarcodeKey";
     [userDefaults synchronize];
 }
 
+- (void)removeUser
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:UBC_STORED_BARCODEKEY];
+    [userDefaults synchronize];
+}
+
 @end
