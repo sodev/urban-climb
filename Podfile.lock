@@ -1,16 +1,39 @@
 PODS:
+  - ASIHTTPRequest (1.8.2):
+    - ASIHTTPRequest/ASIWebPageRequest (= 1.8.2)
+    - ASIHTTPRequest/CloudFiles (= 1.8.2)
+    - ASIHTTPRequest/Core (= 1.8.2)
+    - ASIHTTPRequest/S3 (= 1.8.2)
+  - ASIHTTPRequest/ASIWebPageRequest (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/CloudFiles (1.8.2):
+    - ASIHTTPRequest/Core
+  - ASIHTTPRequest/Core (1.8.2):
+    - Reachability
+  - ASIHTTPRequest/S3 (1.8.2):
+    - ASIHTTPRequest/Core
+  - hpple (0.2.0)
   - MTBBarcodeScanner (5.0.11)
+  - Reachability (3.2)
 
 DEPENDENCIES:
+  - ASIHTTPRequest
+  - hpple (~> 0.2)
   - MTBBarcodeScanner
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ASIHTTPRequest
+    - hpple
     - MTBBarcodeScanner
+    - Reachability
 
 SPEC CHECKSUMS:
+  ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
+  hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: 0cf595b65aa3885d52081523cabe64919235ff83
+PODFILE CHECKSUM: b43b45dda0d2e07e52739ba3e7d1559fc83442ef
 
 COCOAPODS: 1.6.1

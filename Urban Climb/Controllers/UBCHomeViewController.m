@@ -47,7 +47,7 @@ static NSString * const EDIT_MEMBERSHIP_SEGUE_IDENTIFIER = @"EditMembershipSegue
 //    [self.cardView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor constant:0.0].active = YES;
 //    [self.cardView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor constant:0.0].active = YES;
 //    [self.cardView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant:0.0].active = YES;
-    self.cardView.frame = CGRectMake(16, 96, self.view.frame.size.width - 32, 550);
+    self.cardView.frame = CGRectMake(16, 132, self.view.frame.size.width - 32, 550);
     
     self.cardView.layer.shadowRadius  = 4.0;
     self.cardView.layer.shadowColor   = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0].CGColor;

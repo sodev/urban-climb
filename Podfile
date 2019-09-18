@@ -6,6 +6,8 @@ target 'Urban Climb' do
   # use_frameworks!
 
   # Pods for Urban Climb
-  pod "MTBBarcodeScanner"
+  pod 'MTBBarcodeScanner'
+  pod 'hpple', '~> 0.2'
+  pod 'ASIHTTPRequest'
 
 end

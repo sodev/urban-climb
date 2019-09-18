@@ -10,9 +10,18 @@
 		14160898232228A900178F00 /* UBCBarcodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14160897232228A900178F00 /* UBCBarcodeScannerViewController.m */; };
 		1416089C2323267100178F00 /* UBCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1416089B2323267100178F00 /* UBCUser.m */; };
 		141608AD2324BF6300178F00 /* UBCUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 141608AC2324BF6300178F00 /* UBCUserService.m */; };
+		1440794C23291818005083DA /* UBCClassService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1440794B23291818005083DA /* UBCClassService.m */; };
+		1440794F232B40DB005083DA /* UBCClassListSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1440794E232B40DB005083DA /* UBCClassListSerializer.m */; };
+		14407954232F625A005083DA /* UBCClassSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 14407953232F625A005083DA /* UBCClassSection.m */; };
 		14503531232601660004036E /* UBCMembershipCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14503530232601660004036E /* UBCMembershipCardView.m */; };
 		14503533232601720004036E /* UBCMembershipCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14503532232601720004036E /* UBCMembershipCardView.xib */; };
 		1450353823272D320004036E /* UBCMembershipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450353723272D320004036E /* UBCMembershipViewController.m */; };
+		1461BCB823275F2900F2DA79 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1461BCB723275F2900F2DA79 /* WebKit.framework */; };
+		1461BCBB232781D400F2DA79 /* UBClassesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1461BCBA232781D400F2DA79 /* UBClassesTableViewController.m */; };
+		147AF8222327826200E36631 /* UBCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 147AF8212327826200E36631 /* UBCClass.m */; };
+		147AF8252327826F00E36631 /* UBCClassTableDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 147AF8242327826F00E36631 /* UBCClassTableDatasource.m */; };
+		147AF828232784C600E36631 /* UBCClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 147AF827232784C600E36631 /* UBCClassTableViewCell.m */; };
+		14D816C223275BC400517A58 /* UBCFacebookFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D816C123275BC400517A58 /* UBCFacebookFeedViewController.m */; };
 		9361487F211E5BD000B9389E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9361487E211E5BD000B9389E /* AppDelegate.m */; };
 		93614882211E5BD000B9389E /* UBCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93614881211E5BD000B9389E /* UBCHomeViewController.m */; };
 		93614885211E5BD000B9389E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93614883211E5BD000B9389E /* Main.storyboard */; };
@@ -29,11 +38,28 @@
 		1416089B2323267100178F00 /* UBCUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCUser.m; sourceTree = "<group>"; };
 		141608AB2324BF6300178F00 /* UBCUserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCUserService.h; sourceTree = "<group>"; };
 		141608AC2324BF6300178F00 /* UBCUserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCUserService.m; sourceTree = "<group>"; };
+		1440794A23291818005083DA /* UBCClassService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClassService.h; sourceTree = "<group>"; };
+		1440794B23291818005083DA /* UBCClassService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCClassService.m; sourceTree = "<group>"; };
+		1440794D232B40DB005083DA /* UBCClassListSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClassListSerializer.h; sourceTree = "<group>"; };
+		1440794E232B40DB005083DA /* UBCClassListSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCClassListSerializer.m; sourceTree = "<group>"; };
+		14407952232F625A005083DA /* UBCClassSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClassSection.h; sourceTree = "<group>"; };
+		14407953232F625A005083DA /* UBCClassSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCClassSection.m; sourceTree = "<group>"; };
 		1450352F232601660004036E /* UBCMembershipCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCMembershipCardView.h; sourceTree = "<group>"; };
 		14503530232601660004036E /* UBCMembershipCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCMembershipCardView.m; sourceTree = "<group>"; };
 		14503532232601720004036E /* UBCMembershipCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UBCMembershipCardView.xib; sourceTree = "<group>"; };
 		1450353623272D320004036E /* UBCMembershipViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCMembershipViewController.h; sourceTree = "<group>"; };
 		1450353723272D320004036E /* UBCMembershipViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCMembershipViewController.m; sourceTree = "<group>"; };
+		1461BCB723275F2900F2DA79 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1461BCB9232781D400F2DA79 /* UBClassesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBClassesTableViewController.h; sourceTree = "<group>"; };
+		1461BCBA232781D400F2DA79 /* UBClassesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBClassesTableViewController.m; sourceTree = "<group>"; };
+		147AF8202327826200E36631 /* UBCClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClass.h; sourceTree = "<group>"; };
+		147AF8212327826200E36631 /* UBCClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCClass.m; sourceTree = "<group>"; };
+		147AF8232327826F00E36631 /* UBCClassTableDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClassTableDatasource.h; sourceTree = "<group>"; };
+		147AF8242327826F00E36631 /* UBCClassTableDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCClassTableDatasource.m; sourceTree = "<group>"; };
+		147AF826232784C600E36631 /* UBCClassTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClassTableViewCell.h; sourceTree = "<group>"; };
+		147AF827232784C600E36631 /* UBCClassTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCClassTableViewCell.m; sourceTree = "<group>"; };
+		14D816C023275BC400517A58 /* UBCFacebookFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCFacebookFeedViewController.h; sourceTree = "<group>"; };
+		14D816C123275BC400517A58 /* UBCFacebookFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCFacebookFeedViewController.m; sourceTree = "<group>"; };
 		16820A2A850E426433505047 /* Pods-Urban Climb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Urban Climb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Urban Climb/Pods-Urban Climb.debug.xcconfig"; sourceTree = "<group>"; };
 		253E68F75C5378C9709F735C /* libPods-Urban Climb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Urban Climb.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F614BC04862EA1651DE4ED4 /* Pods-Urban Climb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Urban Climb.release.xcconfig"; path = "Pods/Target Support Files/Pods-Urban Climb/Pods-Urban Climb.release.xcconfig"; sourceTree = "<group>"; };
@@ -54,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1461BCB823275F2900F2DA79 /* WebKit.framework in Frameworks */,
 				B8F20C4B4EFAFFFC12D1EB5E /* libPods-Urban Climb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +93,12 @@
 			children = (
 				1416089A2323267100178F00 /* UBCUser.h */,
 				1416089B2323267100178F00 /* UBCUser.m */,
+				147AF8202327826200E36631 /* UBCClass.h */,
+				147AF8212327826200E36631 /* UBCClass.m */,
+				147AF8232327826F00E36631 /* UBCClassTableDatasource.h */,
+				147AF8242327826F00E36631 /* UBCClassTableDatasource.m */,
+				14407952232F625A005083DA /* UBCClassSection.h */,
+				14407953232F625A005083DA /* UBCClassSection.m */,
 			);
 			name = Models;
 			path = Controllers;
@@ -76,6 +109,10 @@
 			children = (
 				141608AB2324BF6300178F00 /* UBCUserService.h */,
 				141608AC2324BF6300178F00 /* UBCUserService.m */,
+				1440794A23291818005083DA /* UBCClassService.h */,
+				1440794B23291818005083DA /* UBCClassService.m */,
+				1440794D232B40DB005083DA /* UBCClassListSerializer.h */,
+				1440794E232B40DB005083DA /* UBCClassListSerializer.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -122,6 +159,8 @@
 				14503532232601720004036E /* UBCMembershipCardView.xib */,
 				1450352F232601660004036E /* UBCMembershipCardView.h */,
 				14503530232601660004036E /* UBCMembershipCardView.m */,
+				147AF826232784C600E36631 /* UBCClassTableViewCell.h */,
+				147AF827232784C600E36631 /* UBCClassTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +174,10 @@
 				14160897232228A900178F00 /* UBCBarcodeScannerViewController.m */,
 				1450353623272D320004036E /* UBCMembershipViewController.h */,
 				1450353723272D320004036E /* UBCMembershipViewController.m */,
+				14D816C023275BC400517A58 /* UBCFacebookFeedViewController.h */,
+				14D816C123275BC400517A58 /* UBCFacebookFeedViewController.m */,
+				1461BCB9232781D400F2DA79 /* UBClassesTableViewController.h */,
+				1461BCBA232781D400F2DA79 /* UBClassesTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -151,6 +194,7 @@
 		E96CA9603C4DA2BC539E2DCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1461BCB723275F2900F2DA79 /* WebKit.framework */,
 				253E68F75C5378C9709F735C /* libPods-Urban Climb.a */,
 			);
 			name = Frameworks;
@@ -250,13 +294,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				141608AD2324BF6300178F00 /* UBCUserService.m in Sources */,
+				14407954232F625A005083DA /* UBCClassSection.m in Sources */,
 				14503531232601660004036E /* UBCMembershipCardView.m in Sources */,
+				1440794F232B40DB005083DA /* UBCClassListSerializer.m in Sources */,
 				1450353823272D320004036E /* UBCMembershipViewController.m in Sources */,
 				93614882211E5BD000B9389E /* UBCHomeViewController.m in Sources */,
 				9361488D211E5BD200B9389E /* main.m in Sources */,
+				147AF8222327826200E36631 /* UBCClass.m in Sources */,
+				1461BCBB232781D400F2DA79 /* UBClassesTableViewController.m in Sources */,
+				147AF8252327826F00E36631 /* UBCClassTableDatasource.m in Sources */,
 				14160898232228A900178F00 /* UBCBarcodeScannerViewController.m in Sources */,
 				9361487F211E5BD000B9389E /* AppDelegate.m in Sources */,
+				147AF828232784C600E36631 /* UBCClassTableViewCell.m in Sources */,
+				1440794C23291818005083DA /* UBCClassService.m in Sources */,
 				1416089C2323267100178F00 /* UBCUser.m in Sources */,
+				14D816C223275BC400517A58 /* UBCFacebookFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
