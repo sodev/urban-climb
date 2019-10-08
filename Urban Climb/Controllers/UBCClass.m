@@ -15,6 +15,11 @@
     return [NSString stringWithFormat:@"%@ (%lul) with %@ at %@ on %@(%@)", self.name, (unsigned long)self.type, self.instructor, self.time, self.date, self.bookingUrlString];
 }
 
+- (NSString *)idString
+{
+    return [self.bookingUrlString componentsSeparatedByString:@"classId="].lastObject;
+}
+    
 - (NSString *)dateString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
