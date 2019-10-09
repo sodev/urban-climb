@@ -57,7 +57,7 @@
 - (IBAction)removeMembership:(id)sender
 {
     UBCUserService *userService = [[UBCUserService alloc] init];
-    [userService removeUser];
+    [userService removeUser:self.currentUser];
     
     [self dismissViewControllerAnimated:YES completion:NULL];
 }

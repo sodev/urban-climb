@@ -102,8 +102,12 @@ static NSString * const EDIT_MEMBERSHIP_SEGUE_IDENTIFIER = @"EditMembershipSegue
 {
     [self dismissViewControllerAnimated:viewController completion:NULL];
     
-    self.currentUser = [[UBCUser alloc] initWithBarcode:code.stringValue];
-    [self.userService storeUser:self.currentUser];
+    NSString *barcode = code.stringValue;
+    UBCUser *currentUser = [[UBCUser alloc] initWithBarcode:barcode];
+    [self.userService storeUser:currentUser];
+    
+
+    self.currentUser = self.userService.retrieveStoredUser;
     
     [self updateContent];
 }

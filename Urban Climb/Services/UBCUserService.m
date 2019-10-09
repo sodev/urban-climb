@@ -8,34 +8,33 @@
 
 #import "UBCUserService.h"
 
-static NSString * const UBC_STORED_BARCODEKEY = @"UBCStoredUserBarcodeKey";
-
 @implementation UBCUserService
 
 - (nullable UBCUser *)retrieveStoredUser
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *storedBarcode = [userDefaults objectForKey:UBC_STORED_BARCODEKEY];
-    
-    if (storedBarcode == nil) {
+    RLMResults<UBCUser *> *users = [UBCUser objectsWhere:@"isCurrentUser == YES"];
+    if (users.count == 1) {
+        return users.firstObject;
+    } else {
         return NULL;
     }
-    
-    return [[UBCUser alloc] initWithBarcode:storedBarcode];
 }
 
 - (void)storeUser:(UBCUser *)user
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:user.barcode forKey:UBC_STORED_BARCODEKEY];
-    [userDefaults synchronize];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        user.isCurrentUser = YES;
+        [realm addObject:user];
+    }];
 }
 
-- (void)removeUser
+- (void)removeUser:(UBCUser *)user
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults removeObjectForKey:UBC_STORED_BARCODEKEY];
-    [userDefaults synchronize];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    user.isCurrentUser = NO;
+    [realm commitWriteTransaction];
 }
 
 @end

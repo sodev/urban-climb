@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UBCUser : NSObject
+#import <Realm/Realm.h>
+
+@interface UBCUser : RLMObject
 
 - (instancetype _Nonnull)initWithBarcode:(nonnull NSString *)barcode;
 
-@property (nonnull, readonly, copy) NSString *barcode;
+@property NSString *barcode;
+@property BOOL isCurrentUser;
 
 @end

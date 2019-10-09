@@ -9,5 +9,6 @@ target 'Urban Climb' do
   pod 'MTBBarcodeScanner'
   pod 'hpple', '~> 0.2'
   pod 'ASIHTTPRequest'
+  pod 'Realm'
 
 end

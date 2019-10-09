@@ -15,11 +15,15 @@ PODS:
   - hpple (0.2.0)
   - MTBBarcodeScanner (5.0.11)
   - Reachability (3.2)
+  - Realm (3.19.0):
+    - Realm/Headers (= 3.19.0)
+  - Realm/Headers (3.19.0)
 
 DEPENDENCIES:
   - ASIHTTPRequest
   - hpple (~> 0.2)
   - MTBBarcodeScanner
+  - Realm
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -27,13 +31,15 @@ SPEC REPOS:
     - hpple
     - MTBBarcodeScanner
     - Reachability
+    - Realm
 
 SPEC CHECKSUMS:
   ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
   hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
 
-PODFILE CHECKSUM: b43b45dda0d2e07e52739ba3e7d1559fc83442ef
+PODFILE CHECKSUM: b8caac62c36ba39399280accd99dbe9bab3922d0
 
 COCOAPODS: 1.6.1
