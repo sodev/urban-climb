@@ -58,7 +58,7 @@
     // watch out: error is nil here, but you never do that in production code. Do proper checks!
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    request.HTTPMethod = @"GET";
+    request.HTTPMethod = @"POST";
     
     // for alternative 1:
     [request setURL:[NSURL URLWithString:urlString]];
