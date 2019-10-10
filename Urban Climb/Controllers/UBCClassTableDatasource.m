@@ -23,8 +23,11 @@
     self = [super init];
     if (self) {
         NSMutableArray *sections = [[NSMutableArray alloc] init];
-        NSArray *dates = [classes valueForKey:@"date"];
-        for (NSDate *date in dates) {
+        NSSet *uniqueDates = [NSSet setWithArray:[classes valueForKey:@"date"]];
+        
+        NSArray *sortedDates = [uniqueDates.allObjects sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
+        
+        for (NSDate *date in sortedDates) {
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@", date];
             NSArray *classesForDate = [classes filteredArrayUsingPredicate:predicate];
             
@@ -36,9 +39,9 @@
             
             UBCClassSection *section = [[UBCClassSection alloc] initWithTitle:title classes:classesForDate];
             [sections addObject:section];
-            
-            _sections = sections;
         }
+        
+        _sections = sections;
     }
     
     return self;
