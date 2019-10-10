@@ -14,8 +14,6 @@
 
 - (NSArray <UBCClass *> *)serializeClassData:(NSData *)classData
 {
-    NSMutableArray <UBCClass *> *classes = [[NSMutableArray alloc] init];
-    
     TFHpple *tutorialsParser = [TFHpple hppleWithHTMLData:classData];
     NSString *rowXpathQueryString = @"//tr";
     NSArray *rowNodes = [tutorialsParser searchWithXPathQuery:rowXpathQueryString];
@@ -35,17 +33,41 @@
         else if (rowElement.children.count == 5) {
             TFHppleElement *classElement = rowElement;
             UBCClass *class = [self serializeClassElement:classElement withDateElement:activeDateElement];
-            [classes addObject:class];
         }
     }
     
-    return classes;
+    NSMutableArray <UBCClass *> *classArray = [[NSMutableArray alloc] init];
+    RLMResults<UBCClass *> *classes = [UBCClass allObjects];
+    for (UBCClass *class in classes) {
+        [classArray addObject:class];
+    }
+    
+    return classArray;
 }
 
 - (UBCClass *)serializeClassElement:(TFHppleElement *)classElement withDateElement:(TFHppleElement *)dateElement
 {
     UBCClass *class = [self serializeClassElement:classElement];
     class.date = [self serializeDateElement:dateElement];
+    
+    RLMResults<UBCClass *> *classes = [UBCClass objectsWhere:@"time == %@ && date == %@", class.time, class.date];
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    if (classes.count == 1) {
+        UBCClass *storecClass = classes.firstObject;
+        
+        [realm beginWriteTransaction];
+        storecClass.time = class.time;
+        storecClass.instructor = class.instructor;
+        storecClass.name = class.name;
+        storecClass.isFull = class.isFull;
+        storecClass.date = class.date;
+        [realm commitWriteTransaction];
+    } else {
+        [realm transactionWithBlock:^{
+            [realm addObject:class];
+        }];
+    }
     
     return class;
 }
@@ -65,7 +87,8 @@
         class.isFull = @YES;
         
         NSString *classTypeString = [self contentFromElement:classElement forNodePath:@[@0, @5, @0, @0]]; // [[[elements[5] children][0] children][0] content];
-        class.type = [self classTypeFromString:classTypeString];
+        class.type = classTypeString;
+//        class.type = [self classTypeFromString:classTypeString];
     }
     else if (elements.count == 8) {
         class.time = [self contentFromElement:classElement forNodePath:@[@0, @0, @0]]; // [[elements[0] children][0] content]; // node path 0, 0
@@ -74,7 +97,8 @@
         class.isFull = @NO;
         
         NSString *classTypeString = [self contentFromElement:classElement forNodePath:@[@0, @4, @0, @0]]; //[[[elements[4] children][0] children][0] content];
-        class.type = [self classTypeFromString:classTypeString];
+        class.type = classTypeString;
+//        class.type = [self classTypeFromString:classTypeString];
         
         class.bookingUrlString = [self attributeFromElement:classElement forNodePath:@[@1, @0] withKey:@"href"];
     }

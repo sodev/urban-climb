@@ -21,21 +21,16 @@
 
 - (void)configureWithClass:(UBCClass *)classObject
 {
-    switch (classObject.type) {
-        case kYogaClass:
-            self.classTypeImageView.image = [UIImage imageNamed:@"yogaIcon"];
-            break;
+    NSDictionary *classIconMapping = @{
+        @"Yoga": @"yogaIcon",
+        @"Fitness": @"fitnessIcon",
+        @"Climbing": @"climbingIcon",
         
-        case kFitnessClass:
-            self.classTypeImageView.image = [UIImage imageNamed:@"fitnessIcon"];
-            break;
-            
-        case kClimbingClass:
-            self.classTypeImageView.image = [UIImage imageNamed:@"climbingIcon"];
-            break;
-            
-        default:
-            break;
+    };
+    
+    NSString *imageName = classIconMapping[classObject.type];
+    if (imageName != nil) {
+        self.classTypeImageView.image = [UIImage imageNamed:imageName];
     }
     
     self.instructorLabel.text = classObject.instructor;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
 typedef enum ClassType : NSUInteger {
     kYogaClass = 1,
@@ -14,9 +15,10 @@ typedef enum ClassType : NSUInteger {
     kFitnessClass
 } ClassType;
 
-@interface UBCClass : NSObject
+@interface UBCClass : RLMObject
 
-@property ClassType type;
+//@property ClassType type;
+@property (nonnull, strong) NSString *type;
 @property BOOL isFull;
 @property (nonnull, strong) NSString *instructor;
 @property (nonnull, strong) NSString *name;
