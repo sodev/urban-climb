@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *instructorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *classNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *classTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bookedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fullLabel;
 
 @end
 
@@ -35,8 +37,9 @@
     
     self.instructorLabel.text = classObject.instructor;
     self.classNameLabel.text = classObject.name;
-    self.classTimeLabel.text = classObject.time;
-    
+    self.classTimeLabel.text = classObject.timeString;
+    self.bookedLabel.hidden = classObject.isBooked == NO;
+    self.fullLabel.hidden = classObject.isFull == YES;
 }
 
 @end

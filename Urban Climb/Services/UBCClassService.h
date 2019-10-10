@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UBCClassService : NSObject
 
-- (void)fetchClassesFromServer:(void (^)(NSArray <UBCClass *> *classes, NSError * _Nullable error))completionHandler;
+- (void)fetchClassesFromServer:(void (^)(NSError * _Nullable error))completionHandler;
 
 - (void)bookClass:(UBCClass *)classObject completion:(void (^)(NSError * _Nullable error))completionHandler;
 

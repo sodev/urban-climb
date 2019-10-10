@@ -33,7 +33,7 @@
         return self;
     }
     
-- (void)fetchClassesFromServer:(void (^)(NSArray <UBCClass *> *classes, NSError * _Nullable error))completionHandler
+- (void)fetchClassesFromServer:(void (^)(NSError * _Nullable error))completionHandler
 {
     NSString *urlString = @"https://portal.urbanclimb.com.au/uc-admin/api/classes/website/class-data.ashx";
 
@@ -55,17 +55,13 @@
                                    };
     
     NSData *jsonBodyData = [NSJSONSerialization dataWithJSONObject:jsonBodyDict options:kNilOptions error:nil];
-    // watch out: error is nil here, but you never do that in production code. Do proper checks!
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     request.HTTPMethod = @"POST";
-    
-    // for alternative 1:
     [request setURL:[NSURL URLWithString:urlString]];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
-        [request setHTTPBody:jsonBodyData];
-    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
+    [request setHTTPBody:jsonBodyData];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config
@@ -75,11 +71,15 @@
                                             completionHandler:^(NSData * _Nullable data,
                                                                 NSURLResponse * _Nullable response,
                                                                 NSError * _Nullable error) {
-                                                
-                                                UBCClassListSerializer *serializer = [[UBCClassListSerializer alloc] init];
-                                                NSArray *classes = [serializer serializeClassData:data];
-                                                
-                                                completionHandler(classes, error);
+                                                if (error) {
+                                                    completionHandler(error);
+                                                } else {
+                                                    UBCClassListSerializer *serializer = [[UBCClassListSerializer alloc] init];
+                                                    NSError *serializingError;
+                                                    [serializer serializeClassData:data error:&serializingError];
+                                                    
+                                                    completionHandler(serializingError);
+                                                }
                                             }];
     [task resume];
 }

@@ -12,6 +12,6 @@
 
 @interface UBCClassListSerializer : NSObject
 
-- (NSArray <UBCClass *> *)serializeClassData:(NSData *)classData;
+- (void)serializeClassData:(NSData *)classData error:(NSError **)error;
 
 @end

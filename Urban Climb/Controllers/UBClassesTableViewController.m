@@ -30,12 +30,14 @@
 {
     [super viewDidLoad];
     
-    self.datasource = [[UBCClassTableDatasource alloc] initWithClasses:@[]];
+    self.datasource = [[UBCClassTableDatasource alloc] initWithStartDate:[NSDate now]];
     
     self.classService = [[UBCClassService alloc] init];
-    [self.classService fetchClassesFromServer:^(NSArray<UBCClass *> * _Nonnull classes, NSError * _Nullable error) {
-        self.datasource = [[UBCClassTableDatasource alloc] initWithClasses:classes];
-        [self.tableView reloadData];
+    [self.classService fetchClassesFromServer:^(NSError * _Nullable error) {
+        if (error == nil) {
+            self.datasource = [[UBCClassTableDatasource alloc] initWithStartDate:[NSDate date]];
+            [self.tableView reloadData];
+        }
     }];
 }
 
@@ -81,7 +83,7 @@
     
     UBCClass *class = [self.datasource classForIndexPath:indexPath];
     
-    NSString *message = [NSString stringWithFormat:@"%@ with %@ at %@ on %@", class.name, class.instructor, class.time, class.dateString];
+    NSString *message = [NSString stringWithFormat:@"%@ with %@ at %@ on %@", class.name, class.instructor, class.timeString, class.dateString];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirm Booking"
                                                                              message:message

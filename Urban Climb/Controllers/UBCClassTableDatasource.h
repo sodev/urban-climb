@@ -12,7 +12,7 @@
 
 @interface UBCClassTableDatasource : NSObject
 
-- (instancetype)initWithClasses:(NSArray <UBCClass *> *)classes;
+- (instancetype)initWithStartDate:(NSDate *)startDate;
 
 - (NSInteger)numberOfSections;
 

@@ -18,26 +18,30 @@
 
 @implementation UBCClassTableDatasource
 
-- (instancetype)initWithClasses:(nonnull NSArray <UBCClass *> *)classes
+- (instancetype)initWithStartDate:(NSDate *)startDate
 {
     self = [super init];
     if (self) {
+        RLMResults <UBCClass *> *classes = [UBCClass objectsWhere:@"date >= %@", startDate];
+        
+        NSMutableArray *classesArray = [[NSMutableArray alloc] init];
+        for (UBCClass *class in classes) {
+            [classesArray addObject:class];
+        }
+        
         NSMutableArray *sections = [[NSMutableArray alloc] init];
-        NSSet *uniqueDates = [NSSet setWithArray:[classes valueForKey:@"date"]];
+        NSSet *uniqueDateStrings = [NSSet setWithArray:[classesArray valueForKey:@"dateString"]];
         
-        NSArray *sortedDates = [uniqueDates.allObjects sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
+        NSArray *sortedDateStrings = [uniqueDateStrings.allObjects sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
         
-        for (NSDate *date in sortedDates) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"date == %@", date];
-            NSArray *classesForDate = [classes filteredArrayUsingPredicate:predicate];
+        for (NSString *dateString in sortedDateStrings) {
+            NSArray <UBCClass *> *classesForDate = [classesArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"dateString == %@", dateString]];
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_AU"];
             dateFormatter.dateFormat = @"E MMMM dd, yyyy";
             
-            NSString *title = [dateFormatter stringFromDate:date];
-            
-            UBCClassSection *section = [[UBCClassSection alloc] initWithTitle:title classes:classesForDate];
+            UBCClassSection *section = [[UBCClassSection alloc] initWithTitle:dateString classes:classesForDate];
             [sections addObject:section];
         }
         

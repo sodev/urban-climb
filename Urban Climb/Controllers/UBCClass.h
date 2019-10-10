@@ -20,14 +20,15 @@ typedef enum ClassType : NSUInteger {
 //@property ClassType type;
 @property (nonnull, strong) NSString *type;
 @property BOOL isFull;
+@property BOOL isBooked;
 @property (nonnull, strong) NSString *instructor;
 @property (nonnull, strong) NSString *name;
-@property (nonnull, strong) NSString *time;
 @property (nonnull, strong) NSDate *date;
 @property (nonnull, strong) NSString *bookingUrlString;
 
 @property (nonnull, readonly) NSString *idString;
 @property (nonnull, readonly) NSString *dateString;
+@property (nonnull, readonly) NSString *timeString;
 
 @end
 
