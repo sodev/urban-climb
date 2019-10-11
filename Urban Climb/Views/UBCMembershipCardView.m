@@ -34,6 +34,7 @@
     self.barcodeImageView.image = [self barcodeFromString:@"0000000"];
     self.barcodeImageView.alpha = 0.1;
     self.addBarcodeButton.hidden = NO;
+    self.addBarcodeButton.layer.cornerRadius = 5.0;
 }
 
 - (IBAction)addBarcodeButtonTapped:(id)sender
