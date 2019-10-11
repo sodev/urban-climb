@@ -87,27 +87,36 @@
 - (void)bookClass:(UBCClass *)classObject completion:(void (^)(NSError * _Nullable error))completionHandler
 {
     NSString *classId = classObject.idString;
-    NSString *barcode = self.barcode;
-    NSString *url1 = @"https://portal.urbanclimb.com.au/uc-services/member-class/login.aspx?classId=";
-    NSString *url2 = @"&url=https%3a%2f%2fportal.urbanclimb.com.au%2fuc-services%2fmember-class%2fenrol.aspx%3fclassId%";
-    NSString *bodyStringFormat1 = @"__EVENTTARGET=ctl00%24cphBody%24btnSubmit&__EVENTARGUMENT=&__VIEWSTATE=%2FwEPDwUJNzQwNjUzMTIxD2QWAmYPDxYCHgtfUGFnZUJyYW5jaAUkODY3NGUzNTAtZDM0MC00YWIzLWE0NjItNTU5NTA2MWE2OTUwZBYCAgEPZBYCAgEPZBYIAgEPFgIeBFRleHQFBFlvZ2FkAgMPFgIfAQUgTW9uZGF5LCAxNCBPY3RvYmVyIDIwMTkgMDY6MDAgUE1kAgUPFgIfAQULQ29sbGluZ3dvb2RkAgcPDxYCHgdWaXNpYmxlaGQWAmYPFgIfAQUgTW9uZGF5LCAxNCBPY3RvYmVyIDIwMTkgMDY6MDAgUE1kZP5z9Fe%2FfuXfF4v8Chj4akMK9tyu9M0OoUdwGXmFiA1F&__VIEWSTATEGENERATOR=F13564C9&__EVENTVALIDATION=%2FwEdAAYdMfWDRNuEo96azk71E3eFj1h8Oz8w%2FlVuOhG12xvNE%2FgEIT9boQjD2miQ%2F22VIUUy01KFc5sYzDV3kTRwxMUIWHg7jg3JGlrn88Mp8JvAgm6nWYzGHEBU%2BYWpM%2BYr0v675rvlBGgShcleatuEJX7b9BxciN1FpwfsuYlmqPbmJg%3D%3D&ctl00%24cphBody%24txtBarcode=";
-    NSString *bodyStringFormat2 = @"&ctl00%24cphBody%24txtName=";
+    NSString *barcode = self.barcode ?: @"2731927";
+    NSString *requestUrlString = [@"https://portal.urbanclimb.com.au/uc-services/member-class/login.aspx?classId={{class_id}}&url=https://portal.urbanclimb.com.au/uc-services/member-class/enrol.aspx?classId={{class_id}}" stringByReplacingOccurrencesOfString:@"{{class_id}}" withString:classId];
     
-    NSString *requestUrlString = [NSString stringWithFormat:@"%@%@%@%@", url1, classId, url2, classId];
+    NSDictionary *bodyDict = @{
+        @"__EVENTTARGET" : @"ctl00%24cphBody%24btnSubmit",
+        @"__EVENTARGUMENT" : @"",
+        @"__VIEWSTATE" : @"%2FwEPDwUJNzQwNjUzMTIxD2QWAmYPDxYCHgtfUGFnZUJyYW5jaAUkODY3NGUzNTAtZDM0MC00YWIzLWE0NjItNTU5NTA2MWE2OTUwZBYCAgEPZBYCAgEPZBYIAgEPFgIeBFRleHQFBFlvZ2FkAgMPFgIfAQUgTW9uZGF5LCAxNCBPY3RvYmVyIDIwMTkgMDY6MDAgUE1kAgUPFgIfAQULQ29sbGluZ3dvb2RkAgcPDxYCHgdWaXNpYmxlaGQWAmYPFgIfAQUgTW9uZGF5LCAxNCBPY3RvYmVyIDIwMTkgMDY6MDAgUE1kZP5z9Fe%2FfuXfF4v8Chj4akMK9tyu9M0OoUdwGXmFiA1F",
+        @"__VIEWSTATEGENERATOR" : @"F13564C9",
+        @"__EVENTVALIDATION" : @"%2FwEdAAYdMfWDRNuEo96azk71E3eFj1h8Oz8w%2FlVuOhG12xvNE%2FgEIT9boQjD2miQ%2F22VIUUy01KFc5sYzDV3kTRwxMUIWHg7jg3JGlrn88Mp8JvAgm6nWYzGHEBU%2BYWpM%2BYr0v675rvlBGgShcleatuEJX7b9BxciN1FpwfsuYlmqPbmJg%3D%3D",
+        @"ctl00%24cphBody%24txtBarcode" : barcode,
+        @"ctl00%24cphBody%24txtName" : @"",
+    };
     
+    NSMutableString *bodyString = [[NSMutableString alloc] init];
+    for (NSString *key in bodyDict.allKeys) {
+        NSString *value = bodyDict[key];
+        [bodyString appendFormat:@"%@=%@&", key, value];
+    }
     
-    NSString *bodyString = [NSString stringWithFormat:@"%@%@%@", bodyStringFormat1, barcode, bodyStringFormat2];
-        
     NSData *bodyData = [NSData dataWithBytes:[bodyString UTF8String] length:[bodyString length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     request.HTTPMethod = @"POST";
-    
-    // for alternative 1:
     [request setURL:[NSURL URLWithString:requestUrlString]];
     [request setHTTPBody:bodyData];
-    [request setAllHTTPHeaderFields:@{@"authority": @"portal.urbanclimb.com.au", @"cache-control": @"max-age=0", @"origin": @"https://portal.urbanclimb.com.au", @"upgrade-insecure-requests": @"1", @"content-type": @"application/x-www-form-urlencoded"}];
-    
+    [request setValue:@"portal.urbanclimb.com.au" forHTTPHeaderField:@"authority"];
+    [request setValue:@"max-age=0" forHTTPHeaderField:@"cache-control"];
+    [request setValue:@"https://portal.urbanclimb.com.au" forHTTPHeaderField:@"origin"];
+    [request setValue:@"1" forHTTPHeaderField:@"upgrade-insecure-requests"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config
@@ -117,52 +126,18 @@
                                             completionHandler:^(NSData * _Nullable data,
                                                                 NSURLResponse * _Nullable response,
                                                                 NSError * _Nullable error) {
-                                                
-                                                completionHandler(error);
+                                                if (error ) {
+                                                    completionHandler(error);
+                                                } else {
+                                                    NSString *dataString = [NSString stringWithUTF8String:data.bytes];
+                                                    if ([dataString containsString:@"success"] == NO) {
+                                                        completionHandler([NSError errorWithDomain:@"co.sodev.ucapp" code:1002 userInfo:NULL]);
+                                                    } else {
+                                                        completionHandler(nil);
+                                                    }
+                                                }
                                             }];
     [task resume];
 }
-    
-    
-//- (void)bookClass:(UBCClass *)classObject completion:(void (^)(NSError * _Nullable error))completionHandler
-//{
-//    // https://portal.urbanclimb.com.au/uc-services/member-class/login.aspx?classId=1f31212f-9671-44e9-bba4-5000e213d3b3&url='
-//
-//
-////    NSString *urlString = [classObject.bookingUrlString stringByReplacingOccurrencesOfString:@"enrol" withString:@"login"];
-////    NSString *urlString = @"https://portal.urbanclimb.com.au/uc-services/member-class/login.aspx?classId=f17619e2-31e9-4876-aea5-ff343c1ddb5e&url=";
-//    NSString *urlString = @"https://portal.urbanclimb.com.au/uc-services/member-class/login.aspx?classId=b2f51f0b-941b-4c0b-b707-078e1498b5f1&url=https%3a%2f%2fportal.urbanclimb.com.au%2fuc-services%2fmember-class%2fenrol.aspx%3fclassId%3db2f51f0b-941b-4c0b-b707-078e1498b5f1";
-//
-////    NSString *bodyString = @"txtBarcode=2731927";
-//
-//    NSString *bodyString = @"__EVENTTARGET=ctl00%24cphBody%24btnSubmit&__EVENTARGUMENT=&__VIEWSTATE=%2FwEPDwUJNzQwNjUzMTIxD2QWAmYPDxYCHgtfUGFnZUJyYW5jaAUkODY3NGUzNTAtZDM0MC00YWIzLWE0NjItNTU5NTA2MWE2OTUwZBYCAgEPZBYCAgEPZBYIAgEPFgIeBFRleHQFBFlvZ2FkAgMPFgIfAQUgTW9uZGF5LCAxNCBPY3RvYmVyIDIwMTkgMDY6MDAgUE1kAgUPFgIfAQULQ29sbGluZ3dvb2RkAgcPDxYCHgdWaXNpYmxlaGQWAmYPFgIfAQUgTW9uZGF5LCAxNCBPY3RvYmVyIDIwMTkgMDY6MDAgUE1kZP5z9Fe%2FfuXfF4v8Chj4akMK9tyu9M0OoUdwGXmFiA1F&__VIEWSTATEGENERATOR=F13564C9&__EVENTVALIDATION=%2FwEdAAYdMfWDRNuEo96azk71E3eFj1h8Oz8w%2FlVuOhG12xvNE%2FgEIT9boQjD2miQ%2F22VIUUy01KFc5sYzDV3kTRwxMUIWHg7jg3JGlrn88Mp8JvAgm6nWYzGHEBU%2BYWpM%2BYr0v675rvlBGgShcleatuEJX7b9BxciN1FpwfsuYlmqPbmJg%3D%3D&ctl00%24cphBody%24txtBarcode=2731927&ctl00%24cphBody%24txtName=";
-//
-//    NSData *bodyData = [NSData dataWithBytes:[bodyString UTF8String] length:[bodyString length]];
-//
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    request.HTTPMethod = @"POST";
-//
-//    // for alternative 1:
-//    [request setURL:[NSURL URLWithString:urlString]];
-//    [request setHTTPBody:bodyData];
-//    [request setAllHTTPHeaderFields:@{@"authority": @"portal.urbanclimb.com.au", @"cache-control": @"max-age=0", @"origin": @"https://portal.urbanclimb.com.au", @"upgrade-insecure-requests": @"1", @"content-type": @"application/x-www-form-urlencoded"}];
-//
-//
-//    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    NSURLSession *session = [NSURLSession sessionWithConfiguration:config
-//                                                          delegate:nil
-//                                                     delegateQueue:[NSOperationQueue mainQueue]];
-//    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-//                                            completionHandler:^(NSData * _Nullable data,
-//                                                                NSURLResponse * _Nullable response,
-//                                                                NSError * _Nullable error) {
-//
-//                                                NSString *dataString = [NSString stringWithUTF8String:data.bytes];
-//                                                NSLog(@"%@", dataString);
-//                                                NSLog(@"%@", error);
-//                                            }];
-//    [task resume];
-//}
-
 
 @end
