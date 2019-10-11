@@ -24,6 +24,7 @@ typedef enum ClassType : NSUInteger {
 @property (nonnull, strong) NSString *instructor;
 @property (nonnull, strong) NSString *name;
 @property (nonnull, strong) NSDate *date;
+@property (nonnull, strong) NSDate *datetime;
 @property (nonnull, strong) NSString *bookingUrlString;
 
 @property (nonnull, readonly) NSString *idString;

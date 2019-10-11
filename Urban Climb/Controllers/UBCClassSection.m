@@ -11,13 +11,13 @@
 @interface UBCClassSection ()
 
 @property (nonnull, strong) NSString *title;
-@property (nonnull, strong) NSArray <UBCClass *> *classes;
+@property (nonnull, strong) RLMResults <UBCClass *> *classes;
 
 @end
 
 @implementation UBCClassSection
 
-- (instancetype _Nullable )initWithTitle:(NSString *_Nonnull)title classes:(NSArray <UBCClass *> *_Nonnull)classes
+- (instancetype _Nullable )initWithTitle:(NSString *_Nonnull)title classes:(RLMResults <UBCClass *> *_Nonnull)classes
 {
     self = [super init];
     if (self) {

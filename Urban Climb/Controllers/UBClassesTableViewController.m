@@ -34,7 +34,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    self.datasource = [[UBCClassTableDatasource alloc] initWithStartDate:[NSDate now]];
+    self.datasource = [[UBCClassTableDatasource alloc] initWithStartDate:[NSDate date]];
     
     self.classService = [[UBCClassService alloc] init];
     [self.classService fetchClassesFromServer:^(NSError * _Nullable error) {

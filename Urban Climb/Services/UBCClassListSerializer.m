@@ -45,17 +45,18 @@
 
 - (void)serializeClassElement:(TFHppleElement *)classElement withDateElement:(TFHppleElement *)dateElement error:(NSError **)error
 {
-    NSDate *date = [self serializeDateFromDateElement:dateElement classElement:classElement error:error];
+    NSDate *datetime = [self serializeDateTimeFromDateElement:dateElement classElement:classElement error:error];
     // get the gym -- TODO, for now we know that we are only getting classes for collingwood
     
     // we will use the date and time (and TODO gym) as unique identifiers for a class as bookm classes don't provide a guid
-    RLMResults<UBCClass *> *classes = [UBCClass objectsWhere:@"date == %@", date];
+    RLMResults<UBCClass *> *classes = [UBCClass objectsWhere:@"datetime == %@", datetime];
     
     UBCClass *class = [[UBCClass alloc] init];
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     if (classes.count == 0) {
-        class.date = date;
+        class.datetime = datetime;
+        class.date = [self serializeDateFromDateElement:dateElement error:error];
         class.isBooked = NO;
         [realm transactionWithBlock:^{
             [realm addObject:class];
@@ -91,7 +92,19 @@
     return class;
 }
 
-- (NSDate *)serializeDateFromDateElement:(TFHppleElement *)dateElement classElement:(TFHppleElement *)classElement error:(NSError **)error
+- (NSDate *)serializeDateFromDateElement:(TFHppleElement *)dateElement error:(NSError **)error
+{
+    NSString *dateString = [self contentFromElement:dateElement forNodePath:@[@0, @0] error:error];
+    dateString = [dateString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"E MMMM dd, yyyy";
+    NSDate *date = [dateFormatter dateFromString:dateString];
+    
+    return date;
+}
+
+- (NSDate *)serializeDateTimeFromDateElement:(TFHppleElement *)dateElement classElement:(TFHppleElement *)classElement error:(NSError **)error
 {
     NSString *dateString = [self contentFromElement:dateElement forNodePath:@[@0, @0] error:error];
     dateString = [dateString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

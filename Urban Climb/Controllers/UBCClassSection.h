@@ -12,7 +12,7 @@
 
 @interface UBCClassSection : NSObject
 
-- (instancetype _Nullable )initWithTitle:(NSString *_Nonnull)title classes:(NSArray <UBCClass *> *_Nonnull)classes;
+- (instancetype _Nullable )initWithTitle:(NSString *_Nonnull)title classes:(RLMResults <UBCClass *> *_Nonnull)classes;
 
 - (NSInteger)numberOfRows;
 

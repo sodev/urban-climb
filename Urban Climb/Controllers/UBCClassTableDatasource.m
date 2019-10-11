@@ -22,24 +22,21 @@
 {
     self = [super init];
     if (self) {
-        RLMResults <UBCClass *> *classes = [UBCClass objectsWhere:@"date >= %@", startDate];
-        
-        NSMutableArray *classesArray = [[NSMutableArray alloc] init];
-        for (UBCClass *class in classes) {
-            [classesArray addObject:class];
-        }
+        RLMResults <UBCClass *> *classes = [UBCClass objectsWhere:@"datetime >= %@", startDate];
         
         NSMutableArray *sections = [[NSMutableArray alloc] init];
-        NSSet *uniqueDateStrings = [NSSet setWithArray:[classesArray valueForKey:@"dateString"]];
+        NSSet *uniqueDates = [NSSet setWithArray:[classes valueForKey:@"date"]];
         
-        NSArray *sortedDateStrings = [uniqueDateStrings.allObjects sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
+        NSArray *sortedDates = [uniqueDates.allObjects sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES]]];
         
-        for (NSString *dateString in sortedDateStrings) {
-            NSArray <UBCClass *> *classesForDate = [classesArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"dateString == %@", dateString]];
+        for (NSDate *date in sortedDates) {
+            RLMResults <UBCClass *> *classesForDate = [classes objectsWhere:@"date == %@", date];
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_AU"];
             dateFormatter.dateFormat = @"E MMMM dd, yyyy";
+            
+            NSString *dateString = [dateFormatter stringFromDate:date];
             
             UBCClassSection *section = [[UBCClassSection alloc] initWithTitle:dateString classes:classesForDate];
             [sections addObject:section];
