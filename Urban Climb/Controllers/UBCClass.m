@@ -25,7 +25,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"E MMMM dd, yyyy";
     
-    return [dateFormatter stringFromDate:self.date];
+    return [dateFormatter stringFromDate:self.datetime];
 }
 
 - (NSString *)timeString
@@ -33,7 +33,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"hh:mm a";
     
-    return [dateFormatter stringFromDate:self.date];
+    return [dateFormatter stringFromDate:self.datetime];
 }
 
 @end

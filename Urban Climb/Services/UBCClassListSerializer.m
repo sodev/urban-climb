@@ -78,13 +78,13 @@
         // if class is full there are 9 elements, 3 node relates to it being full
         class.instructor = [self contentFromElement:classElement forNodePath:@[@0, @8, @0] error:error]; // [[elements[8] children][0] content];
         class.name = [self contentFromElement:classElement forNodePath:@[@0, @5, @1] error:error]; // [[elements[5] children][1] content];
-        class.isFull = @YES;
+        class.isFull = YES;
         class.type = [self contentFromElement:classElement forNodePath:@[@0, @5, @0, @0] error:error]; // [[[elements[5] children][0] children][0] content];
     }
     else if (elements.count == 8) {
         class.instructor = [self contentFromElement:classElement forNodePath:@[@0, @7, @0] error:error]; // class.instructor = [[elements[7] children][0] content];
         class.name = [self contentFromElement:classElement forNodePath:@[@0, @4, @1] error:error]; // [[elements[4] children][1] content];
-        class.isFull = @NO;
+        class.isFull = NO;
         class.type = [self contentFromElement:classElement forNodePath:@[@0, @4, @0, @0] error:error]; //[[[elements[4] children][0] children][0] content];
         class.bookingUrlString = [self attributeFromElement:classElement forNodePath:@[@1, @0] withKey:@"href" error:error];
     }

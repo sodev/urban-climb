@@ -83,8 +83,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([self.datasource canSelectRowAtIndexPath:indexPath] == NO) {
+        return;
+    }
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UBCClass *class = [self.datasource classForIndexPath:indexPath];
     
     NSString *message = [NSString stringWithFormat:@"%@ with %@ at %@ on %@", class.name, class.instructor, class.timeString, class.dateString];

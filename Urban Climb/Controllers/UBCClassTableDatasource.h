@@ -22,4 +22,6 @@
 
 - (UBCClass *)classForIndexPath:(NSIndexPath *)indexPath;
 
+- (BOOL)canSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end

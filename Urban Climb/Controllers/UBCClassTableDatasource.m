@@ -74,4 +74,11 @@
     return [section classForRow:indexPath.row];
 }
 
+- (BOOL)canSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UBCClass *class = [self classForIndexPath:indexPath];
+    
+    return class.isBooked == NO && class.isFull == NO;
+}
+
 @end
