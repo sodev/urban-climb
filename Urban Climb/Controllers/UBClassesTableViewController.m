@@ -15,8 +15,9 @@
 
 #import "UBCClassTableViewCell.h"
 
-@interface UBClassesTableViewController ()
+@interface UBClassesTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonnull, strong) UBCClassTableDatasource *datasource;
 @property (nonnull, strong) UBCClassService *classService;
 
@@ -29,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     
     self.datasource = [[UBCClassTableDatasource alloc] initWithStartDate:[NSDate now]];
     
@@ -95,6 +99,12 @@
             NSString *title;
             NSString *message;
             if (error == nil) {
+                RLMRealm *realm = [RLMRealm defaultRealm];
+                [realm beginWriteTransaction];
+                class.isBooked = YES;
+                [realm commitWriteTransaction];
+                [self.tableView reloadData];
+                
                 title = @"Booking confirmed";
                 message = @"";
             } else {
