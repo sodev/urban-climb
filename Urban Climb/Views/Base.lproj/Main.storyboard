@@ -409,7 +409,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOOKED" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeK-kk-kZz">
-                                                    <rect key="frame" x="288.5" y="62.5" width="52.5" height="14.5"/>
+                                                    <rect key="frame" x="280.5" y="62.5" width="52.5" height="14.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14.5" id="fmq-8p-z4f"/>
                                                         <constraint firstAttribute="width" constant="52.5" id="rTJ-CA-rMI"/>
@@ -426,9 +426,9 @@
                                                 <constraint firstItem="z0L-f6-2xv" firstAttribute="leading" secondItem="IRH-mw-eUY" secondAttribute="leadingMargin" constant="8" id="P8c-ss-7Y8"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="z0L-f6-2xv" secondAttribute="bottom" constant="8" id="PVT-Ww-Rp0"/>
                                                 <constraint firstItem="zdz-tf-V63" firstAttribute="bottom" secondItem="IRH-mw-eUY" secondAttribute="bottomMargin" id="U4c-Zj-P71"/>
-                                                <constraint firstAttribute="trailing" secondItem="zeK-kk-kZz" secondAttribute="trailing" constant="8" id="fKQ-tF-bPI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Wu6-lb-yoJ" secondAttribute="trailing" constant="8" id="kMt-D9-aTB"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="zeK-kk-kZz" secondAttribute="bottom" id="qXP-0S-R4p"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zeK-kk-kZz" secondAttribute="trailing" constant="8" id="tBS-aC-oFg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zdz-tf-V63" secondAttribute="trailing" constant="8" id="ugt-bf-ldJ"/>
                                             </constraints>
                                         </tableViewCellContentView>

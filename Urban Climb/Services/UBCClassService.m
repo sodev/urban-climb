@@ -87,7 +87,7 @@
 - (void)bookClass:(UBCClass *)classObject completion:(void (^)(NSError * _Nullable error))completionHandler
 {
     NSString *classId = classObject.idString;
-    NSString *barcode = self.barcode ?: @"2731927";
+    NSString *barcode = self.barcode;
     NSString *requestUrlString = [@"https://portal.urbanclimb.com.au/uc-services/member-class/login.aspx?classId={{class_id}}&url=https://portal.urbanclimb.com.au/uc-services/member-class/enrol.aspx?classId={{class_id}}" stringByReplacingOccurrencesOfString:@"{{class_id}}" withString:classId];
     
     NSDictionary *bodyDict = @{
