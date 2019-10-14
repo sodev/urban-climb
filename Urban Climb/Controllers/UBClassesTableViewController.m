@@ -12,6 +12,7 @@
 #import "UBCClassTableDatasource.h"
 
 #import "UBCClassService.h"
+#import "UBCUserService.h"
 
 #import "UBCClassTableViewCell.h"
 #import "UBCClassSectionHeaderCell.h"
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonnull, strong) UBCClassTableDatasource *datasource;
 @property (nonnull, strong) UBCClassService *classService;
+@property (nonnull, strong) UBCUserService *userService;
 
 @end
 
@@ -36,7 +38,7 @@
     self.tableView.delegate = self;
     
     self.datasource = [[UBCClassTableDatasource alloc] initWithStartDate:[NSDate date]];
-    
+    self.userService = [[UBCUserService alloc] init];
     self.classService = [[UBCClassService alloc] init];
     [self.classService fetchClassesFromServer:^(NSError * _Nullable error) {
         if (error == nil) {
@@ -49,6 +51,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    UBCUser *currentUser = self.userService.retrieveStoredUser;
+    self.tableView.userInteractionEnabled = currentUser != NULL;
     
     [self.tableView reloadData];
 }
