@@ -10,6 +10,7 @@
 		14160898232228A900178F00 /* UBCBarcodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14160897232228A900178F00 /* UBCBarcodeScannerViewController.m */; };
 		1416089C2323267100178F00 /* UBCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1416089B2323267100178F00 /* UBCUser.m */; };
 		141608AD2324BF6300178F00 /* UBCUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 141608AC2324BF6300178F00 /* UBCUserService.m */; };
+		142C559823541B4900FC6BBF /* UBCClassSectionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 142C559723541B4900FC6BBF /* UBCClassSectionHeaderCell.m */; };
 		1440794C23291818005083DA /* UBCClassService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1440794B23291818005083DA /* UBCClassService.m */; };
 		1440794F232B40DB005083DA /* UBCClassListSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1440794E232B40DB005083DA /* UBCClassListSerializer.m */; };
 		14407954232F625A005083DA /* UBCClassSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 14407953232F625A005083DA /* UBCClassSection.m */; };
@@ -38,6 +39,8 @@
 		1416089B2323267100178F00 /* UBCUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCUser.m; sourceTree = "<group>"; };
 		141608AB2324BF6300178F00 /* UBCUserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCUserService.h; sourceTree = "<group>"; };
 		141608AC2324BF6300178F00 /* UBCUserService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCUserService.m; sourceTree = "<group>"; };
+		142C559623541B4900FC6BBF /* UBCClassSectionHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClassSectionHeaderCell.h; sourceTree = "<group>"; };
+		142C559723541B4900FC6BBF /* UBCClassSectionHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCClassSectionHeaderCell.m; sourceTree = "<group>"; };
 		1440794A23291818005083DA /* UBCClassService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClassService.h; sourceTree = "<group>"; };
 		1440794B23291818005083DA /* UBCClassService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UBCClassService.m; sourceTree = "<group>"; };
 		1440794D232B40DB005083DA /* UBCClassListSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBCClassListSerializer.h; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				14503530232601660004036E /* UBCMembershipCardView.m */,
 				147AF826232784C600E36631 /* UBCClassTableViewCell.h */,
 				147AF827232784C600E36631 /* UBCClassTableViewCell.m */,
+				142C559623541B4900FC6BBF /* UBCClassSectionHeaderCell.h */,
+				142C559723541B4900FC6BBF /* UBCClassSectionHeaderCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				141608AD2324BF6300178F00 /* UBCUserService.m in Sources */,
 				14407954232F625A005083DA /* UBCClassSection.m in Sources */,
 				14503531232601660004036E /* UBCMembershipCardView.m in Sources */,
+				142C559823541B4900FC6BBF /* UBCClassSectionHeaderCell.m in Sources */,
 				1440794F232B40DB005083DA /* UBCClassListSerializer.m in Sources */,
 				1450353823272D320004036E /* UBCMembershipViewController.m in Sources */,
 				93614882211E5BD000B9389E /* UBCHomeViewController.m in Sources */,

@@ -14,6 +14,7 @@
 #import "UBCClassService.h"
 
 #import "UBCClassTableViewCell.h"
+#import "UBCClassSectionHeaderCell.h"
 
 @interface UBClassesTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -54,9 +55,14 @@
 
 #pragma mark - <UITableViewDatasource>
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [self.datasource titleForSection:section];
+    UBCClassSectionHeaderCell *headerCell = [tableView dequeueReusableCellWithIdentifier:@"UBCClassSectionHeaderCell"];
+    
+    NSString *title = [self.datasource titleForSection:section];
+    [headerCell configureWithTitle:title];
+    
+    return headerCell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
