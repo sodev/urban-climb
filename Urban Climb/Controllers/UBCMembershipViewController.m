@@ -58,8 +58,7 @@
 {
     UBCUserService *userService = [[UBCUserService alloc] init];
     [userService removeUser:self.currentUser];
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.delegate membershipRemovedByViewController:self];
 }
 
 

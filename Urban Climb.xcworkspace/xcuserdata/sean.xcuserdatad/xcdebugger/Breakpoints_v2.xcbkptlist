@@ -15,5 +15,84 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43FD6888-BB54-4F74-B76F-BCD236E94B60"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Urban Climb/Controllers/UBCHomeViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-membershipRemovedByViewController:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "43FD6888-BB54-4F74-B76F-BCD236E94B60 - 1f2b90a0ad2859fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UBCHomeViewController membershipRemovedByViewController:]"
+                  moduleName = "Urban Climb"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sean/Projects/urban-climb/Urban%20Climb/Controllers/UBCHomeViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "43FD6888-BB54-4F74-B76F-BCD236E94B60 - 21c4af56a2e834f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[UBCHomeViewController membershipRemovedByViewController:]_block_invoke"
+                  moduleName = "Urban Climb"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sean/Projects/urban-climb/Urban%20Climb/Controllers/UBCHomeViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "43FD6888-BB54-4F74-B76F-BCD236E94B60 - ef215f978a6e8c88"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_e8_32s"
+                  moduleName = "Urban Climb"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sean/Projects/urban-climb/Urban%20Climb/Controllers/UBCHomeViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B136F1CB-2919-4E0B-94CE-3C8824F4488C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Urban Climb/Controllers/UBCMembershipViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-removeMembership:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

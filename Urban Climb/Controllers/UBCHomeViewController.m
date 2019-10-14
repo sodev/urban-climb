@@ -21,7 +21,7 @@
 static NSString * const ADD_BARCODE_SEGUE_IDENTIFIER = @"BarcodeScannerSegue";
 static NSString * const EDIT_MEMBERSHIP_SEGUE_IDENTIFIER = @"EditMembershipSegue";
 
-@interface UBCHomeViewController () <UBCBarcodeScannerViewControllerDelegate, UBCMembershipCardViewDelegate>
+@interface UBCHomeViewController () <UBCBarcodeScannerViewControllerDelegate, UBCMembershipCardViewDelegate, UBCMembershipViewControllerDelegate>
 
 @property (nonatomic, strong, nullable) UBCUser *currentUser;
 @property (nonatomic, strong, nonnull) UBCUserService *userService;
@@ -86,6 +86,7 @@ static NSString * const EDIT_MEMBERSHIP_SEGUE_IDENTIFIER = @"EditMembershipSegue
     else if ([segue.identifier isEqualToString:EDIT_MEMBERSHIP_SEGUE_IDENTIFIER]) {
         UBCMembershipViewController *destinationViewController = segue.destinationViewController;
         destinationViewController.currentUser = self.currentUser;
+        destinationViewController.delegate = self;
     }
 }
 
@@ -110,6 +111,16 @@ static NSString * const EDIT_MEMBERSHIP_SEGUE_IDENTIFIER = @"EditMembershipSegue
     self.currentUser = self.userService.retrieveStoredUser;
     
     [self updateContent];
+}
+
+#pragma mark - <UBCMembershipViewControllerDelegate> Methods
+
+- (void)membershipRemovedByViewController:(UBCMembershipViewController *_Nonnull)viewController;
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        self.currentUser = [self.userService retrieveStoredUser];
+        [self updateContent];
+    }];
 }
 
 @end

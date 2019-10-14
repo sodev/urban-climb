@@ -10,8 +10,18 @@
 
 #import "UBCUser.h"
 
+@class UBCMembershipViewController;
+
+@protocol UBCMembershipViewControllerDelegate <NSObject>
+
+- (void)membershipRemovedByViewController:(UBCMembershipViewController *_Nonnull)viewController;
+
+@end
+
 @interface UBCMembershipViewController : UIViewController
 
 @property (nonnull, strong) UBCUser *currentUser;
+
+@property (weak) id <UBCMembershipViewControllerDelegate> _Nullable delegate;
 
 @end
